@@ -122,6 +122,15 @@ body {
   border-top: 1px solid #eee;
 }
 
+.adBetween {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin: 5px 0;
+  overflow: hidden;
+}
+
 /* Responsive Design */
 /* ===== NOT ELIGIBLE RESULT ===== */
 .resultNotEligible {
