@@ -1,8 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Script from "next/script";
+
+function AdSlot({ type, id }) {
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+        // Clear previous content
+        containerRef.current.innerHTML = "";
+
+        if (type === "native") {
+            const script = document.createElement("script");
+            script.async = true;
+            script.setAttribute("data-cfasync", "false");
+            script.src =
+                "https://pl28782156.effectivegatecpm.com/f6426ee948d2461b520759b788f3d50e/invoke.js";
+            const div = document.createElement("div");
+            div.id = "container-f6426ee948d2461b520759b788f3d50e";
+            containerRef.current.appendChild(div);
+            containerRef.current.appendChild(script);
+        } else if (type === "banner468") {
+            const optScript = document.createElement("script");
+            optScript.innerHTML = `
+        atOptions = {
+          'key' : '6459a8cba4ca9c4be9c95b2c626d8d91',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      `;
+            const invokeScript = document.createElement("script");
+            invokeScript.src =
+                "https://www.highperformanceformat.com/6459a8cba4ca9c4be9c95b2c626d8d91/invoke.js";
+            containerRef.current.appendChild(optScript);
+            containerRef.current.appendChild(invokeScript);
+        } else if (type === "banner728") {
+            const optScript = document.createElement("script");
+            optScript.innerHTML = `
+        atOptions = {
+          'key' : 'bd6202b3617b4d18ab165c53447bdda1',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      `;
+            const invokeScript = document.createElement("script");
+            invokeScript.src =
+                "https://www.highperformanceformat.com/bd6202b3617b4d18ab165c53447bdda1/invoke.js";
+            containerRef.current.appendChild(optScript);
+            containerRef.current.appendChild(invokeScript);
+        }
+    }, [type]);
+
+    return <div ref={containerRef} className="adBetween" id={`ad-slot-${id}`} />;
+}
 
 export default function RegisterPage() {
     const [submitted, setSubmitted] = useState(false);
@@ -70,16 +126,8 @@ export default function RegisterPage() {
                         priority
                     />
 
-                    {/* Native Banner Ad */}
-                    <div className="adNative" style={{ marginTop: "20px" }}>
-                        <Script
-                            async
-                            data-cfasync="false"
-                            src="https://pl28782156.effectivegatecpm.com/f6426ee948d2461b520759b788f3d50e/invoke.js"
-                            strategy="afterInteractive"
-                        />
-                        <div id="container-f6426ee948d2461b520759b788f3d50e"></div>
-                    </div>
+                    {/* Native Banner Ad in image section */}
+                    <AdSlot type="native" id="img-native" />
                 </div>
 
                 {/* Form Section */}
@@ -99,131 +147,42 @@ export default function RegisterPage() {
                                 <input type="text" name="fullName" required />
                             </div>
 
-                            {/* Ad between inputs */}
-                            <div className="adBetween">
-                                <Script
-                                    async
-                                    data-cfasync="false"
-                                    src="https://pl28782156.effectivegatecpm.com/f6426ee948d2461b520759b788f3d50e/invoke.js"
-                                    strategy="afterInteractive"
-                                    id="ad-between-1"
-                                />
-                                <div id="container-f6426ee948d2461b520759b788f3d50e"></div>
-                            </div>
+                            <AdSlot type="native" id="after-name" />
 
                             <div className="regFormGroup">
                                 <label>شناختی کارڈ نمبر (13 ہندسے)</label>
-                                <input
-                                    type="text"
-                                    name="cnic"
-                                    maxLength={13}
-                                    required
-                                />
+                                <input type="text" name="cnic" maxLength={13} required />
                             </div>
 
-                            {/* Ad between inputs */}
-                            <div className="adBetween">
-                                <Script
-                                    id="ad-between-2-options"
-                                    strategy="afterInteractive"
-                                    dangerouslySetInnerHTML={{
-                                        __html: `
-                                          atOptions = {
-                                            'key' : '6459a8cba4ca9c4be9c95b2c626d8d91',
-                                            'format' : 'iframe',
-                                            'height' : 60,
-                                            'width' : 468,
-                                            'params' : {}
-                                          };
-                                        `,
-                                    }}
-                                />
-                                <Script
-                                    src="https://www.highperformanceformat.com/6459a8cba4ca9c4be9c95b2c626d8d91/invoke.js"
-                                    strategy="afterInteractive"
-                                    id="ad-between-2-invoke"
-                                />
-                            </div>
+                            <AdSlot type="banner468" id="after-cnic" />
 
                             <div className="regFormGroup">
                                 <label>فون نمبر</label>
                                 <input type="tel" name="phone" required />
                             </div>
 
-                            {/* Ad between inputs */}
-                            <div className="adBetween">
-                                <Script
-                                    id="ad-between-3-options"
-                                    strategy="afterInteractive"
-                                    dangerouslySetInnerHTML={{
-                                        __html: `
-                                          atOptions = {
-                                            'key' : 'bd6202b3617b4d18ab165c53447bdda1',
-                                            'format' : 'iframe',
-                                            'height' : 90,
-                                            'width' : 728,
-                                            'params' : {}
-                                          };
-                                        `,
-                                    }}
-                                />
-                                <Script
-                                    src="https://www.highperformanceformat.com/bd6202b3617b4d18ab165c53447bdda1/invoke.js"
-                                    strategy="afterInteractive"
-                                    id="ad-between-3-invoke"
-                                />
-                            </div>
+                            <AdSlot type="banner728" id="after-phone" />
 
                             <div className="regFormGroup">
                                 <label>خاندان کے افراد</label>
                                 <input type="number" name="familyMembers" min="1" required />
                             </div>
 
-                            {/* Ad between inputs */}
-                            <div className="adBetween">
-                                <Script
-                                    async
-                                    data-cfasync="false"
-                                    src="https://pl28782156.effectivegatecpm.com/f6426ee948d2461b520759b788f3d50e/invoke.js"
-                                    strategy="afterInteractive"
-                                    id="ad-between-4"
-                                />
-                                <div id="container-f6426ee948d2461b520759b788f3d50e"></div>
-                            </div>
+                            <AdSlot type="native" id="after-family" />
 
                             <div className="regFormGroup">
                                 <label>رہائشی پتہ</label>
                                 <textarea name="address" rows={2} required></textarea>
                             </div>
 
-                            {/* Ad between inputs */}
-                            <div className="adBetween">
-                                <Script
-                                    id="ad-between-5-options"
-                                    strategy="afterInteractive"
-                                    dangerouslySetInnerHTML={{
-                                        __html: `
-                                          atOptions = {
-                                            'key' : '6459a8cba4ca9c4be9c95b2c626d8d91',
-                                            'format' : 'iframe',
-                                            'height' : 60,
-                                            'width' : 468,
-                                            'params' : {}
-                                          };
-                                        `,
-                                    }}
-                                />
-                                <Script
-                                    src="https://www.highperformanceformat.com/6459a8cba4ca9c4be9c95b2c626d8d91/invoke.js"
-                                    strategy="afterInteractive"
-                                    id="ad-between-5-invoke"
-                                />
-                            </div>
+                            <AdSlot type="banner468" id="after-address" />
 
                             <div className="regFormGroup">
                                 <label>ماہانہ آمدن (روپے)</label>
                                 <input type="number" name="income" required />
                             </div>
+
+                            <AdSlot type="banner728" id="after-income" />
 
                             <button type="submit" className="regSubmitBtn">
                                 درخواست جمع کریں
