@@ -123,6 +123,243 @@ body {
 }
 
 /* Responsive Design */
+/* ===== NOT ELIGIBLE RESULT ===== */
+.resultNotEligible {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff3f3;
+  border: 1px solid #e74c3c;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.resultNotEligible .resultIcon {
+  width: 50px;
+  height: 50px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.resultNotEligible h3 {
+  color: #e74c3c;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.resultNotEligible p {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.registerText {
+  margin-top: 10px;
+  color: #333 !important;
+}
+
+.registerLink {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 30px;
+  background: #0a5c2f;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.3s;
+  font-family: 'Jameel Noori Nastaleeq Kasheeda', 'Noto Nastaliq Urdu', Arial, sans-serif;
+}
+
+.registerLink:hover {
+  background: #084722;
+}
+
+/* ===== REGISTRATION PAGE ===== */
+.regHeader {
+  background: white;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.regLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #008444;
+}
+
+.regWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  gap: 30px;
+  padding: 30px;
+  direction: rtl;
+}
+
+.regImageSection {
+  flex: 1;
+  min-width: 300px;
+}
+
+.regImageLogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.regMainImg {
+  transition: 0.4s ease;
+}
+
+.regMainImg:hover {
+  filter: brightness(75%);
+  transform: scale(1.02);
+}
+
+.regFormSection {
+  flex: 1;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.regTitleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.regTitleUrdu {
+  color: #008444;
+  font-size: 1.8rem;
+}
+
+.regSubtitle {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+}
+
+.regGridForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.regFormGroup {
+  margin-bottom: 12px;
+}
+
+.regFullWidth {
+  grid-column: span 2;
+}
+
+.regFormGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.regFormGroup input,
+.regFormGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Jameel Noori Nastaleeq Kasheeda', 'Noto Nastaliq Urdu', Arial, sans-serif;
+  font-size: 0.95rem;
+}
+
+.regSubmitBtn {
+  width: 100%;
+  padding: 15px;
+  background: #008444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  font-family: 'Jameel Noori Nastaleeq Kasheeda', 'Noto Nastaliq Urdu', Arial, sans-serif;
+  transition: background 0.3s;
+}
+
+.regSubmitBtn:hover {
+  background: #006633;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.successMsg {
+  background: #d4edda;
+  color: #155724;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 20px;
+  border: 1px solid #c3e6cb;
+}
+
+.successMsg .successIcon {
+  width: 60px;
+  height: 60px;
+  background: #28a745;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.successMsg h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #155724;
+}
+
+.successMsg p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #155724;
+}
+
+.successNote {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #1e7e34 !important;
+}
+
+/* ===== FOOTER ===== */
+.regFooter {
+  background: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  border-top: 4px solid #008444;
+  margin-top: 50px;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -135,5 +372,24 @@ body {
 
   .formBox {
     padding: 25px;
+  }
+
+  .regWrapper {
+    flex-direction: column;
+    margin: 20px 15px;
+    padding: 20px;
+  }
+
+  .regGridForm {
+    grid-template-columns: 1fr;
+  }
+
+  .regFullWidth {
+    grid-column: span 1;
+  }
+
+  .regTitleWrapper {
+    flex-direction: column;
+    gap: 10px;
   }
 }

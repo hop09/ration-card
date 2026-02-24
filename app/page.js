@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
 
 export default function Home() {
-  const [result, setResult] = useState("نتیجہ یہاں ظاہر ہوگا");
+  const [result, setResult] = useState(null);
+  const [cnic, setCnic] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic can be added here
+    if (cnic.length === 13 && /^[0-9]{13}$/.test(cnic)) {
+      setResult("not-eligible");
+    }
   };
 
   return (
@@ -62,14 +66,37 @@ export default function Home() {
                 placeholder="13 ہندسوں والا CNIC درج کریں"
                 maxLength={13}
                 pattern="[0-9]{13}"
+                value={cnic}
+                onChange={(e) => setCnic(e.target.value.replace(/\D/g, ""))}
                 required
               />
               <button type="submit">اہلیت چیک کریں</button>
             </form>
 
-            <div className="result">
-              <p>{result}</p>
-            </div>
+            {/* Result Area */}
+            {result === null && (
+              <div className="result">
+                <p>نتیجہ یہاں ظاہر ہوگا</p>
+              </div>
+            )}
+
+            {result === "not-eligible" && (
+              <div className="resultNotEligible">
+                <div className="resultIcon">✕</div>
+                <h3>آپ اہل نہیں ہیں</h3>
+                <p>
+                  معذرت! آپ کا CNIC نمبر <strong>{cnic}</strong> رمضان نگہبان
+                  پروگرام کے لیے اہل نہیں ہے۔
+                </p>
+                <p className="registerText">
+                  اگر آپ اس پروگرام میں رجسٹر ہونا چاہتے ہیں تو نیچے دیے گئے
+                  لنک پر کلک کریں:
+                </p>
+                <Link href="/register" className="registerLink">
+                  ابھی رجسٹر کریں
+                </Link>
+              </div>
+            )}
 
             {/* Native Banner Ad - below result */}
             <div className="adNative">
